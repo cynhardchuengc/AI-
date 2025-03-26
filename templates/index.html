@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天衍智能TianYanAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-header">
+                <h1>天衍智能TianYanAI</h1>
+                <div class="header-controls">
+                    <div id="token-count">Tokens: 0/4096</div>
+                    <button id="login-btn" class="login-button">
+                        <i class="fas fa-user"></i> 登录
+                    </button>
+                    <button id="logout-btn" class="login-button">
+                        <i class="fas fa-sign-out-alt"></i> 退出
+                    </button>
+                    <button id="theme-toggle-button" class="theme-toggle-button">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="app-layout">
+                <!-- 左侧历史记录 -->
+                <div class="chat-history">
+                    <div class="history-header">历史对话</div>
+                    <div id="conversation-list"></div>
+                </div>
+                
+                <!-- 中间主聊天区域 -->
+                <div class="chat-main">
+                    <div id="chat-messages" class="chat-messages"></div>
+                    
+                    <!-- 图片预览区域 -->
+                    <div id="image-preview-container" class="image-preview-container">
+                        <div id="image-preview" class="image-preview"></div>
+                    </div>
+                    
+                    <!-- 聊天输入区域 -->
+                    <div class="chat-input-container">
+                        <div class="input-controls">
+                            <div class="input-tools">
+                                <label for="image-upload" class="image-upload-label" title="上传图片">
+                                    <i class="fas fa-image"></i>
+                                </label>
+                                <input id="image-upload" type="file" accept="image/*" style="display: none;">
+                                
+                                <label for="doc-upload" class="doc-upload-label" title="上传文档">
+                                    <i class="fas fa-file-alt"></i>
+                                </label>
+                                <input id="doc-upload" type="file" accept=".pdf,.doc,.docx,.txt" style="display: none;">
+                            </div>
+                            
+                            <textarea id="message-input" placeholder="你想知道什么呢" rows="1"></textarea>
+                            
+                            <button id="send-button">发送</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 版权信息 -->
+                    <div class="copyright">版权归Alan所有，微信：1875954969</div>
+                </div>
+                
+                <!-- 右侧功能栏 -->
+                <div class="sidebar">
+                    <div class="sidebar-header">功能链接</div>
+                    <div class="sidebar-content">
+                        <div class="platform-link">
+                            <a href="#" title="自动按时间点外卖">
+                                <i class="fas fa-utensils"></i> 自动按时间点外卖
+                            </a>
+                        </div>
+                        <div class="platform-link">
+                            <a href="#" title="闹钟">
+                                <i class="fas fa-bell"></i> 闹钟
+                            </a>
+                        </div>
+                        <div class="platform-link">
+                            <a href="#" title="情绪价值">
+                                <i class="fas fa-heart"></i> 情绪价值
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 图片模态窗口 -->
+    <div id="image-modal" class="image-modal">
+        <img id="modal-image" class="modal-image" src="" alt="预览图片">
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
